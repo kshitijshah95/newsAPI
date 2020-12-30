@@ -2,7 +2,7 @@ import React from 'react';
 
 class NewsCard extends React.Component{
     render(){
-        const {author, url, title, urlToImage, publishedAt, source, description} = this.props.newsItem;
+        const {url, title, urlToImage, publishedAt, source, description} = this.props.newsItem;
         // console.log(author);
         // const publishedDate = Date.parse(publishedAt).getDate().toLocaleString();
         return (
