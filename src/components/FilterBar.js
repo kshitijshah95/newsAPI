@@ -2,12 +2,16 @@ import React from 'react';
 
 class NewsPage extends React.Component{
     state = {
-        postPerPage: 10
+        postPerPage: this.props.postPerPage
     }
 
     handleChange = (e) => {
         e.preventDefault();
-        this.setState({postCount: e.target.value});
+        this.setState({postPerPage: e.target.value});
+    }
+    
+    handleSubmit = (e) =>  {
+        e.preventDefault();
         this.props.onSubmit(this.state.postPerPage);
     }
 
@@ -16,7 +20,9 @@ class NewsPage extends React.Component{
         return (
             <>
                 <div className="container">
-                    <input type="text" onChange={this.handleChange} value={this.state.postPerPage}/>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" onChange={this.handleChange} value={this.state.postPerPage}/>
+                    </form>
                 </div>
             </>
         )

@@ -2,20 +2,16 @@ import React from 'react';
 
 const PaginationButton = (props) => {
     const changePage = (e) => {
-        // e.stopPropagation();
-        props.changePage(e.target.textContent);
+        props.changePage(props.pageNumber);
     }
-
-    return (
-        <span className="btn" onClick={changePage}>{props.pageNumber}</span>
-    )
+    return <span className="btn btn-success" onClick={changePage}>{props.pageNumber}</span>
 }
 
 class Pagination extends React.Component{
     render(){
         let pageList = new Array(this.props.pages).fill(0);
         pageList = pageList.map((item, i) => {
-            return <PaginationButton key={i} pageNumber={i+1} changePage={this.props.changePage}/>
+            return <PaginationButton key={i} pageNumber={i} changePage={this.props.changePage}/>
         })
 
         return (

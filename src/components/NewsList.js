@@ -6,7 +6,7 @@ class NewsList extends React.Component{
         const newsList = this.props.news.map((newsItem, i) => {
             return <NewsCard key={i} newsItem={newsItem}/>
         })
-
+        
         return (
             <>
                 <h1>NEWS HEADLINES</h1>
